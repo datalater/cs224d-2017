@@ -7,7 +7,7 @@
 
 ### 01 단어의 의미 재현하기
 
-**단어간의 유사성을 어떻게 측정할 수 있을까**.
+**단어간의 유사성을 어떻게 측정할 수 있을까**:
 
 단어의 의미는 함께 쓰이는 단어를 보면 알 수 있다.
 
@@ -15,20 +15,22 @@
 2. saying that Europe needs unified **banking** regulation to replace the hodgepodge
 
 단어 banking의 의미를 알기 위해서 banking이 쓰인 수천 개 문장을 찾고, 각 문장을 살펴본다.
-가령, 위 2가지 문장을 보면 debt problems, governments, regulation, Europe, saying unified 등이 있다.
+가령, 위 2가지 문장을 보면 debt problems, governments, regulation, Europe, saying unified 등이 등장한다.
 banking과 함께 쓰이는 모든 단어들의 개수를 카운팅한다.
 함께 쓰이는 단어들은 banking의 의미를 represent하는 context words로 사용할 수 있다.
 이러한 방식으로 단어의 의미를 찾는 방법을 distributional similarity라고 한다.
 
 **단어의 의미를 벡터로 정의할 수 있다**:
 
+각 단어가 함께 사용되는 단어들로 의미를 재현할 수 있다는 생각에서 더 나아가 본다.
 각 단어는 dense vector로 표현할 수 있다.
-가령, 단어 A의 dense vector는 단어 A가 사용되는 문장에 등장하는 다른 단어를 예측할 수 있도록 만들어야 한다.
+이때, 단어 A의 dense vector는 단어 A가 사용되는 문장에 등장하는 다른 단어를 예측할 수 있도록 만들어야 한다.
 
-단어 A와 함께 쓰이는 다른 단어들을 "context words"라고 하면, "context words"도 함께 쓰이는 단어들이 있다.
+단어 A와 함께 쓰이는 다른 단어들을 "context words"라고 하자.
+"context words" 또한 함께 쓰이는 단어들이 있다.
 이때 유사도를 측정하기 위해 단어 A를 나타내는 벡터와 "other words"를 나타내는 벡터의 내적을 구한다.
-그 다음 예측이 잘 되도록 두 벡터의 값을 조절한다.
-재귀적인 연산이 포함되는 알고리즘을 통해 단어 A가 해당 context words를 잘 예측하고, context words가 단어 A를 잘 예측하도록 만든다.
+이때, 예측이 잘 되도록 두 벡터의 값을 조절한다.
+재귀적인 연산을 포함하는 알고리즘을 통해 단어 A가 해당 context words를 잘 예측하고, context words가 단어 A를 잘 예측하도록 만든다.
 
 **[주의] distributional vs. distributed representation**:
 
