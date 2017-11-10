@@ -33,7 +33,7 @@ Q. weight matrix를 lookup table이라 부르는 이유?
 
 ![matmul.png](images/matmul.png)
 
-A. 위 그림에 나타나 있듯이 hidden layer는 lookup table로 쓰인다.
+A. 위 그림에 나타나 있듯이, input word가 one-hot vector 형태이므로 hidden layer는 lookup table로 쓰인다.
 
 + hidden layer의 output이 곧 input word의 word vector이다.
 
@@ -52,6 +52,15 @@ A. 위 그림에 나타나 있듯이 hidden layer는 lookup table로 쓰인다.
 > **Note**: neural network는 input word에 상대적인 output wrod의 오프셋에 대해서는 아무것도 모른다. input word보다 이전에 등장한 단어와 이후에 등장한 단어의 확률을 다르게 학습한다. 이 함의를 이해하기 위해 training corpus에서 모든 'York'라는 단어가 'New'로 시작한다고 가정해보자. 즉, 적어도 training data에 따르면 'New'가 'York' 부근에 있을 확률은 100%이다. 그러나 'York' 부근에서 10개 단어를 무작위로 선택하면 'New'가 선택될 확률은 100%가 아니다. 근처에 있는 다른 단어 중 하나를 골랐을 수도 있기 때문이다.
 
 **Intuition**:
+
+단어의 의미를 distributional similarity로 생각하면, 비슷한 단어들끼리는 함께 등장하는 "nearby words"를 상당 부분 공유하고 있을 것이다.
+그러므로 모델을 만들 때는 유사한 단어일수록 word vector가 비슷한 값을 가지도록 훈련시켜야 한다.
+가령, "intelligent"와 "smart"는 매우 유사한 context를 가졌을 거라고 쉽게 예상할 수 있기 때문에 word vector 또한 유사할 것이다.
+
+word2vec 알고리즘은 형태소 분석도 처리할 수 있다.
+"ant"와 "ants"는 유사한 context를 가지기 때문에 network가 두 단어의 word vector를 유사하게 학습할 가능성이 높기 때문이다.
+
+
 
 `@@@resume`
 
