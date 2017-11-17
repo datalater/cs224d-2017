@@ -91,8 +91,8 @@ negative log likelihood를 최소화하는 word vector를 찾는 방법이 무�
 
 $$P(o | c) = \frac{\exp(u_o^{T}v_{c})}{\Sigma_{w=1}^{V} \exp(u_o^{T}v_{c})}$$
 
-+ $o$ : output word(=context word)의 index
-+ $c$ : center word의 index
++ $o$ : output word(=context word)
++ $c$ : center word
 + $u_o$ : output word(=context word)의 vector
 + $v_c$ : center word의 vector
 
@@ -134,7 +134,27 @@ position과 distance을 고려하는 모델들도 존재한다.
 
 ![cs224n-2017-lecture2_01.png](images/cs224n-2017-lecture2_01.png)
 
+1단계 : $Ww_{t}=v_{c}$
 
++ $w_{t}$ : vocabulary $V$ 중 특정 단어를 center word로 지정해서 one-hot vector로 나타낸다. (index = $i$)
++ $W$: vocabulary의 모든 단어가 center word일 때의 word vector를 칼럼으로 결합한 행렬
++ $Ww_{t}$ : 행렬 $W$의 특정 column($i$번째)을 선택한다.
++ $Ww_{t}=v_{c}$ : center word를 나타내는 word vector를 선택한다.
+
+2단계 : $W^{\prime}v_{c} = u_{x}^{T}v_{c}$
+
++ $W^{\prime}$ : vocabulary의 모든 단어가 context word일 때의 word vector를 로우로 결합한 행렬
++ $W^{\prime}v_{c}$ : center word와 context words 행렬을 곱한다.
++ $W^{\prime}v_{c} = u_{x}^{T}v_{c}$ : context words 행렬의 각 로우를 떼어내서 전치하면 context word의 word vector인 $u_{x}^{T}$가 된다. 즉, 모든 단어가 context word일 때의 word vector와 center word를 나타내는 word vector를 내적하는 연산($u_{x}^{T}v_{c}$)을 한다. 그러면 내적한 벡터 값이 context word별로 분리된다.
+
+```
+Q. W`은 context words를 행렬로 나타낸 것이고 한 개라고 했던 것 같은데,
+W`v_{c}는 어떻게 여러 개의 칼럼벡터로 나오는 거지?
+```
+
+3단계 : softmax$(u_{x}^{T}v_{c})$
+
++ softmax$(u_{x}^{T}v_{c})$ : context word의 word vector와 center word의 word vector
 
 
 `@@@resume` https://youtu.be/ERibwqs9p38?t=38m51s
