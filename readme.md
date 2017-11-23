@@ -5,6 +5,17 @@ Source : https://www.youtube.com/playlist?list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe
 
 ---
 
+## L03 GloVe: Global Vectors for Word representation
+
+**A Deeper Look at Word Vectors**:
+
+1. Predict surrounding words of each (window's center) word
+
+
+
+
+---
+
 ## L02 Word Vector Representation
 
 ### 01 단어의 의미 재현하기

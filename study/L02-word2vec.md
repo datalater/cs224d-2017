@@ -3,6 +3,7 @@
 
 **Source**  
 \- Stanford CS224N (2017)  
+\- Chris McCormick http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/  
 \- Deep learning for NLP https://www.dropbox.com/s/ca748gr9i91tn8f/NLP_with_Deep_Learning_%ED%95%9C%EA%B5%AD%EC%96%B4.pdf?dl=0
 
 ---
